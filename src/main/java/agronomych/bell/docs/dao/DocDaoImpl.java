@@ -4,8 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import agronomych.bell.docs.model.Doc;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.EntityManager;
-import javax.persistence.TypedQuery;
+import javax.persistence.*;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -14,12 +13,12 @@ import java.util.List;
  */
 @Repository
 public class DocDaoImpl implements DocDao {
-/*
-    @Autowired
-    private final EntityManager em;
 
-    public DocDaoImpl(EntityManager em) {
-        this.em = em;
+    @Autowired
+    private final EntityManagerFactory emf;
+
+    public DocDaoImpl(EntityManagerFactory emf) {
+        this.emf = emf;
     }
 
     /**
